@@ -1,5 +1,5 @@
 # Wordpress Password Encoder for Shopware 6
-This plugin adds the Wordpress Password Encoder to Shopware 6 which allows you to import your existing WooCommerce customer base into Shopware without loosing their passwords or having to force your customers to reset their passwords.
+This tiny plugin simply adds the Wordpress Password Encoder to Shopware 6 and thus allows you to import your existing WooCommerce customers into Shopware _without_ loosing their passwords or having them reset their passwords. This plugin has been written to import CSV files created with [Shopware 6 Exporter for WooCommerce](https://github.com/vardumper/shopware-six-exporter) Wordpress-Plugin. 
 
 ## Installation
 ```
