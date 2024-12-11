@@ -1,6 +1,7 @@
 {
   "name": "vardumper/legacy-wordpress-password-encoder",
   "description": "Import or migrate users from WordPress and WooCommerce to Shopware 6. Use the 'wordpress' encoder setting. Users will be able to login as before.",
+  "keywords": ["shopware", "plugin", "shopware-plugin", "password", "encoder", "wordpress", "woocommerce"],
   "type": "shopware-platform-plugin",
   "version": "1.0.0",
   "require-dev": {
