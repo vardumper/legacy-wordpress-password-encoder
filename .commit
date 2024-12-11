@@ -1,0 +1,1 @@
+ecs.php src/LegacyEncoder/PasswordHash.php src/LegacyEncoder/Wordpress.php src/WordPressPasswordEncoder.php

@@ -1,0 +1,86 @@
+{
+  "name": "vardumper/legacy-wordpress-password-encoder",
+  "description": "Import or migrate users from WordPress and WooCommerce to Shopware 6. Use the 'wordpress' encoder setting. Users will be able to login as before.",
+  "type": "shopware-platform-plugin",
+  "require-dev": {
+    "brainmaestro/composer-git-hooks": "^3.0",
+    "friendsofphp/php-cs-fixer": "^3.65",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2.0",
+    "rector/swiss-knife": "^1.0",
+    "symplify/easy-coding-standard": "^12.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vardumper\\LegacyWordpressPasswordEncoder\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Erik Pöhler",
+      "email": "iroybot@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "git-hooks-init": "vendor/bin/cghooks add --ignore-lock",
+    "git-hooks-update": "vendor/bin/cghooks update",
+    "swiss-knife": "vendor/bin/swiss-knife",
+    "phpstan": "phpstan --memory-limit=1G",
+    "post-install-cmd": [
+      "@composer dump-autoload -o -a",
+      "@composer git-hooks-init"
+    ],
+    "post-update-cmd": [
+      "@composer dump-autoload -o",
+      "@composer git-hooks-update"
+    ]
+  },
+  "extra": {
+    "shopware-plugin-class": "Vardumper\\LegacyWordpressPasswordEncoder\\WordPressPasswordEncoder",
+    "plugin-icon": "src/Resources/public/wp-logo.png",
+    "copyright": "(c) by Erik Pöhler",
+    "label": {
+      "de-DE": "Wordpress Password Encoder Plugin",
+      "en-GB": "Wordpress Password Encoder Plugin"
+    },
+    "description": {
+      "de-DE": "Beim importieren von Nutzern aus Wordpress oder WooCommerce, benutze den 'wordpress' Passowrt-Encoder. Nutzer können sich so weiter anmelden wie zuvor.",
+      "en-GB": "When importing users from Wordpress or WooCommerce, use the 'wordpress' encoder setting. Users will be able to login as before."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://erikpoehler.com",
+      "en-GB": "https://erikpoehler.com"
+    },
+    "supportLink": {
+      "de-DE": "https://erikpoehler.com/contact",
+      "en-GB": "https://erikpoehler.com/contact"
+    },
+    "hooks": {
+      "pre-commit": [
+        ".githooks/pre-commit"
+      ],
+      "commit-msg": [
+        ".githooks/commit-msg"
+      ],
+      "post-commit": [
+        ".githooks/post-commit"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.3"
+    },
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
+  },
+  "require": {
+    "phpstan/phpstan-symfony": "^2.0"
+  }
+}
