@@ -3,7 +3,7 @@
   "description": "Import or migrate users from WordPress and WooCommerce to Shopware 6. Use the 'wordpress' encoder setting. Users will be able to login as before.",
   "keywords": ["shopware", "plugin", "shopware-plugin", "password", "encoder", "wordpress", "woocommerce"],
   "type": "shopware-platform-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "GPL",
   "require": {
     "shopware/core": "^6.4.0"
