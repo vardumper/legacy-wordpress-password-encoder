@@ -181,7 +181,7 @@ final class PasswordHash
         $itoa64 = './ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
         $output = '$2a$';
-        $output .= \chr(\ord('0') + $this->iterationCountLog2 / 10);
+        $output .= \chr(\ord('0') + intdiv($this->iterationCountLog2, 10));
         $output .= \chr(\ord('0') + $this->iterationCountLog2 % 10);
         $output .= '$';
 
@@ -210,17 +210,13 @@ final class PasswordHash
         return $output;
     }
 
-    public function hashPassword(string $password)
+    public function hashPassword($password)
     {
-        if (\strlen($password) > 4096) {
-            return '*';
-        }
-
         $random = '';
 
         if (\defined('CRYPT_BLOWFISH') && !$this->portableHashes) {
             $random = $this->getRandomBytes(16);
-            $hash = crypt($password, $this->gensaltBlowfish($random));
+            $hash = \crypt($password, $this->gensaltBlowfish($random));
             if (\strlen($hash) === 60) {
                 return $hash;
             }
@@ -230,7 +226,7 @@ final class PasswordHash
             if (\strlen($random) < 3) {
                 $random = $this->getRandomBytes(3);
             }
-            $hash = crypt($password, $this->gensaltExtended($random));
+            $hash = \crypt($password, $this->gensaltExtended($random));
             if (\strlen($hash) === 20) {
                 return $hash;
             }
@@ -244,9 +240,6 @@ final class PasswordHash
             return $hash;
         }
 
-        # Returning '*' on error is safe here, but would _not_ be safe
-        # in a crypt(3)-like function used _both_ for generating new
-        # hashes and for validating passwords against existing hashes.
         return '*';
     }
 

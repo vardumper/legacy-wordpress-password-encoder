@@ -8,6 +8,7 @@
     "brainmaestro/composer-git-hooks": "^3.0",
     "friendsofphp/php-cs-fixer": "^3.65",
     "phpstan/phpstan": "^2.0",
+    "phpunit/phpunit": "^11.5",
     "rector/swiss-knife": "^1.0",
     "symplify/easy-coding-standard": "^12.4"
   },

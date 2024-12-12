@@ -1,7 +1,2 @@
 parameters:
-	ignoreErrors:
-		-
-			message: '#^Method Vardumper\\LegacyWordpressPasswordEncoder\\LegacyEncoder\\Wordpress\:\:generateInternal\(\) is unused\.$#'
-			identifier: method.unused
-			count: 1
-			path: src/LegacyEncoder/Wordpress.php
+	ignoreErrors: []

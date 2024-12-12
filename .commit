@@ -1,0 +1,1 @@
+src/LegacyEncoder/PasswordHash.php src/LegacyEncoder/Wordpress.php tests/PasswordHashTest.php tests/WordpressTest.php

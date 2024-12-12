@@ -20,7 +20,7 @@ final class Wordpress implements LegacyEncoderInterface
         return $passwordHash->checkPassword($password, $hash);
     }
 
-    private function generateInternal(string $password, string $salt, int $iterations): string
+    protected function generateInternal(string $password, string $salt, int $iterations): string
     {
         $passwordHash = new PasswordHash($iterations, true);
 
