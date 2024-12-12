@@ -21,6 +21,11 @@
       "Vardumper\\LegacyWordpressPasswordEncoder\\": "src/"
     }
   },
+  "autoload-dev" : {
+    "psr-4": {
+      "Vardumper\\LegacyWordpressPasswordEncoder\\Tests\\": "tests/"
+    }
+  },
   "authors": [
     {
       "name": "Erik Pöhler",
