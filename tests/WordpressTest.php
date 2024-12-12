@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
+namespace Vardumper\LegacyWordpressPasswordEncoder\Tests;
+
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 use Vardumper\LegacyWordpressPasswordEncoder\LegacyEncoder\PasswordHash;
 use Vardumper\LegacyWordpressPasswordEncoder\LegacyEncoder\Wordpress;
 

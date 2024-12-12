@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Vardumper\LegacyWordpressPasswordEncoder\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Vardumper\LegacyWordpressPasswordEncoder\LegacyEncoder\PasswordHash;
 
@@ -15,7 +17,7 @@ final class PasswordHashTest extends TestCase
 
     public function testHashPasswordWithBlowfish(): void
     {
-        if (!defined('CRYPT_BLOWFISH')) {
+        if (!\defined('CRYPT_BLOWFISH')) {
             static::markTestSkipped('Blowfish not supported.');
         }
 
@@ -24,12 +26,12 @@ final class PasswordHashTest extends TestCase
         $hash = $this->passwordHash->hashPassword($password);
 
         static::assertNotEquals('*', $hash);
-        static::assertEquals(60, strlen($hash));
+        static::assertEquals(60, \strlen($hash));
     }
 
     public function testHashPasswordWithBlowfishWithPortableHashes(): void
     {
-        if (!defined('CRYPT_BLOWFISH')) {
+        if (!\defined('CRYPT_BLOWFISH')) {
             static::markTestSkipped('Blowfish not supported.');
         }
 
@@ -38,7 +40,7 @@ final class PasswordHashTest extends TestCase
         $hash = $this->passwordHash->hashPassword($password);
 
         static::assertNotEquals('*', $hash);
-        static::assertEquals(34, strlen($hash));
+        static::assertEquals(34, \strlen($hash));
     }
 
     public function testHashPasswordWithPortableHashes(): void
@@ -48,7 +50,7 @@ final class PasswordHashTest extends TestCase
         $hash = $this->passwordHash->hashPassword($password);
 
         static::assertNotEquals('*', $hash);
-        static::assertEquals(34, strlen($hash));
+        static::assertEquals(34, \strlen($hash));
     }
 
     public function testCheckPassword(): void
