@@ -14,7 +14,11 @@ class WordpressTest extends TestCase
 
     protected function setUp(): void
     {
-        require_once __DIR__ . '/../../../../vendor/autoload.php';
+        require __DIR__ . '/../bootstrap.php';
+        $alreadyLoadedAutoloadFiles = [];
+        includeCwdVendorAutoloadIfExists($alreadyLoadedAutoloadFiles);
+        autoloadProjectAutoloaderFile('/../../autoload.php', $alreadyLoadedAutoloadFiles);
+        includeDependencyOrRepositoryVendorAutoloadIfExists($alreadyLoadedAutoloadFiles);
         $this->wordpress = new Wordpress();
     }
 
